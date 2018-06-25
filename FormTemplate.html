@@ -1,0 +1,538 @@
+<html>
+<head>
+
+<title>Form </title>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script src="jquery-ui.js"></script>
+<link href="jquery/jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+
+
+body {
+font-family:helvetica, sans-serif;
+font-size:130%;
+  }
+  
+  input
+  {
+   height:40px;
+   padding:5px 5px 12px 5px;
+   font-size:25px;
+   border-radius:5px;
+   border: 1px solid grey;
+   width:320px;
+  }
+  label{ 
+  position:relative;
+  top:4px;
+  width:200px;
+  float: left;
+  font-family:Allerta Stencil, Sans-serif;
+  padding:20px;
+  
+  }
+  .button {
+  border-radius: 50%;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 40px;
+  padding: 5px;
+  width: 150px;
+  height:150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+  opacity:0.5;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.button:hover {opacity: 1}
+  #wrapper{
+  width:550px;
+  margin: 0 auto;
+  }
+  .form_element{
+  margin-bottom:10px;
+  }
+  #errorMessage{
+  color:red;
+  font-size:90% !important;
+  content: "?";
+  }
+  #succes{
+  color:red;
+  font-size:90% !important;
+  display:none;
+  margin-top:200px;
+  }
+  #outer{
+  height:600%;
+  width:100%;
+  border: 1px solid black;
+  float:left;
+  }
+  
+  .parallax {
+    /* The image used */
+    background-image: url("penguin.jpg");
+
+    /* Set a specific height */
+    min-height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    /* The image used */
+    background-image: url("photo.jpg");
+
+    /* Set a specific height */
+    min-height: 400px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	
+	}
+
+.parallax3 {
+
+  /* The image used */
+    background-image: url("photo2.jpg");
+
+    /* Set a specific height */
+    min-height: 400px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	
+}
+	
+#block{
+
+margin-left:300px;
+border: 1px solid #da7e01;
+height:200px;
+width:601px;
+background-color:#da7e01;
+opacity:0.7;
+border-radius:10px 10px 10px 10px;
+}
+
+
+#block2{
+margin-top:110px;
+height:400px;
+width:100%;
+background-color:#282e34;
+opacity:0.8;
+
+
+}
+.head{
+font-family: Allerta Stencil, Sans-serif;
+font-size:60px;
+font-color:white;
+}
+#label2{
+height:100px;
+width:100px;
+}
+.yash{
+font-family: Allerta Stencil, Sans-serif;
+font-size:20px;
+font-color:white;
+}
+#yash2{
+height:30px;
+width:200px;
+margin-left:500px;
+
+
+
+}
+
+
+
+
+
+
+#message {
+    display:none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "?";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "?";
+}
+
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+ height:500px;
+  }
+
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+<div id="outer">
+ <div class="parallax">
+ <div id="block"><h1><font color="white"><p class="head">Sign Up!</p></font></h1></div>
+<div id="wrapper">
+<div id="succes">Thanks For registering!</div>
+    <div id="errorMessage"></div>
+ <div class="form_element">
+    <label for="email"><h2><font color="white">Email</font></h2></label>
+    <input type="text" name="Email" id="email" title="Your email address" placeholder="eg.yourname@example.com">
+  </div>
+  
+  <div class="form_element">
+ <label for="phone"><h2><font color="white">Telephone</font></h2></label>
+ <input type="text" name="phone" id="phone" title="Your contact number" placeholder="eg.123456789">
+  </div>
+  
+  
+  <div class="form_element">
+  
+  <label for="password"><h2><font color="white">Password</font></h2></label>
+  <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+<label for="password"><h4><font color="white">Show Password</font></h4></label> 
+ <input type="checkbox" onclick="myfunc()">
+  </div>
+  
+
+
+<div class="form_element">
+  
+  <label for="passwordConfirm"><h2><font color="white">Confirm Password</font></h2></label>
+  <input type="password" name="passwordConfirm" id="passwordConfirm">
+</div>
+
+
+  <div id="label2">
+  
+  <input type="submit" id="submitButton" value="Sign Up" class="button"   <a href="head"></a>>
+
+  </div>
+  
+  
+  
+  
+  <div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+
+
+
+</div>
+  <div id="block2">
+  <h3><font color="white"><p class="yash"><br><br><br><br><br><br><br><br>
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal 
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal
+  This is the template designed by Yash Mittal</br></p></font></h3>
+  </div>
+  <div class="parallax2">
+    <div id="yash2">
+   <br><br><br><br><br><br><br><br><br><h1><font color="white">SCROLL DOWN</font></h1></br>
+    </div>
+  </div>
+  
+  <div class="parallax3">
+   <div id="yash2">
+   <br><br><br><br><br><br><br><br><br><h1><font color="white">My First Template</font></h1></br>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <h2 style="text-align:center"> Profile Card</h2>
+
+<div class="card">
+  <img src="yashmittaljpg.jpg" alt="John" style="width:100%">
+  <h1>Yash Mittal</h1>
+  <p class="title">Student @, CSE</p>
+  <p>AKTU University</p>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="https://www.linkedin.com/in/yash-mittal-4aa13811a"><i class="fa fa-linkedin"></i></a>  
+    <a href="https://m.facebook.com/Yashmittal00"><i class="fa fa-facebook"></i></a> 
+ </div>
+ <p><button id="contact">Contact</button></p>
+</div>
+  
+  
+  
+  
+  
+  
+  
+</div>
+ </div>
+</div>
+  
+    <script type="text/javascript">
+	
+	
+	
+	
+	function myfunc() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+	$("#contact").click(function(){
+	
+	$(this).html("click above to connect");
+	
+	
+	
+	});
+	
+	function isEmail(email) {
+	
+     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+     
+	 return regex.test(email);
+     
+ }
+	
+	$("#submitButton").click(function(){
+	var errorMessage= "";
+	var fieldMissing ="";
+	
+	if($("#email").val()==""){
+	
+	fieldMissing+="email";
+	}
+	if($("phone").val()==""){
+	
+	fieldMissing+="Telephone";
+	}
+	if($("password").val()==""){
+	
+	fieldMissing+="password";
+	}
+	if($("passwordConfirm").val()==""){
+	
+	fieldMissing+="Type password again";
+	}
+	if(fieldMissing !=""){
+	errorMessage+="Field(s) are missing";
+	
+	}
+	 if(isEmail($("#email").val())== false){
+	 
+	  errorMessage += "Your Email address is not valid";
+	 }
+	 if($.isNumeric($("#phone").val())== false){
+	   errorMessage += "Your number is not correct";
+	 }
+	 if($("#password").val() != $("#passwordConfirm").val()){
+	  errorMessage +="Your passwords don't match";
+	 }
+	 if(errorMessage !=""){
+	 $("#errorMessage").html(errorMessage);
+	 }
+	   else{
+	   $("#succes").show();
+	   $("#errorMessage").hide();
+	   }
+	   
+	
+	});
+	
+	
+	var myInput = document.getElementById("password");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+var emailhover=document.getElementById("email");
+var phone1=document.getElementById("phone");
+// When the user clicks on the password field, show the message box
+phone1.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+}
+emailhover.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+}
+myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+	
+	</script>
+</body>
+
+</html>
